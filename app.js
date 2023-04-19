@@ -50,14 +50,8 @@ app.get('/map', (req, res) => {
   res.sendFile(path.join(__dirname, 'map.html'));
 });
   
-
-const connection = mysql.createConnection({
-    host: process.env.host,
-    user: process.env.user,
-    password: process.env.password,
-    database: process.env.database,
-     PORT: process.env.PORT
-});
+const urlDB = `mysql://root:AM2NQpXb10pTslEFeo7x@containers-us-west-185.railway.app:7217/railway`
+const connection = mysql.createConnection();
 
 // connect to the database
 connection.connect(function(error){
