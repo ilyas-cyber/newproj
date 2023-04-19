@@ -50,7 +50,7 @@ app.get('/map', (req, res) => {
   res.sendFile(path.join(__dirname, 'map.html'));
 });
   
-const urlDB = `mysql://process.env.MYSQLUSER:process.env.MYSQLPASSWORD@process.env.MYSQLHOST:process.env.MYSQLPORT/process.env.MYSQLDATABASE`
+const urlDB = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`
 const connection = mysql.createConnection(urlDB);
 
 // connect to the database
