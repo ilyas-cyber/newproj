@@ -52,10 +52,10 @@ app.get('/map', (req, res) => {
   
 
 const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "nodejs"
+    host: process.env.host,
+    user: process.env.user,
+    password: process.env.password,
+    database: process.env.database
 });
 
 // connect to the database
@@ -411,6 +411,6 @@ app.get('/', (req, res) => {
 app.use(router);
 
 
-app.listen(3000, () => {
+app.listen(3000 || process.env.PORT, () => {
   console.log('Server started on http://localhost:3000');
 });
